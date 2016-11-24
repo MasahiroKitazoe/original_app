@@ -1,10 +1,10 @@
 <ul class="thumbnails thumbnail--movies row grid4 js-lazy-load-images js-my-check-stats" id="list-module">
               <% @subjects.each do |subject| %>
                 <li class="col">
-                  <a href="/subjects/<%= subject.id %>"><div class="thumbnail__figure" style="background-image:url('<%= subject.image.image_url %>')"></div></a>
+                  <a href="/subjects/<%= subject.id %>"><div class="thumbnail__figure" style="background-image:url('http://find-travel.cdn-dena.com/picture/articlebody/84215')"></div></a>
                   <div class="thumbnail__caption">
                     <h3 class="text-xsmall text-overflow" title="タイトル">
-                      <span><i class="icon-rate-60 text-xxsmall opacity-60" title=""></i></span><%= subject.title %></h3>
+                      <span><i class="icon-rate-60 text-xxsmall opacity-60" title=""></i></span><%= subject.name %></h3>
                     <% if subject.reviews.present? %>
                     <p class="text-small">
                       <span class="rating-star">
