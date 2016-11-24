@@ -1,24 +1,18 @@
-<ul class="thumbnails thumbnail--movies row grid4 js-lazy-load-images js-my-check-stats" id="list-module">
+            <ul>
               <% @subjects.each do |subject| %>
-                <li class="col">
-                  <a href="/subjects/<%= subject.id %>"><div class="thumbnail__figure" style="background-image:url('http://find-travel.cdn-dena.com/picture/articlebody/84215')"></div></a>
-                  <div class="thumbnail__caption">
-                    <h3 class="text-xsmall text-overflow" title="タイトル">
-                      <span><i class="icon-rate-60 text-xxsmall opacity-60" title=""></i></span><%= subject.name %></h3>
+                <li>
+                  <a href="/subjects/<%= subject.id %>"><div style="background-image:url('http://find-travel.cdn-dena.com/picture/articlebody/84215')"></div>
+                  <div>
+                    <h3><%= subject.name %></h3></a>
                     <% if subject.reviews.present? %>
-                    <p class="text-small">
-                      <span class="rating-star">
-                        <i class="star-actived rate-<%= subject.reviews.average(:rate).round %>0"></i>
-                      </span>
                     <% end %>
-                    </p>
                   </div>
                 </li>
               <% end %>
               </ul>
 
               <%= form_tag('/subjects/search', method: :get) do %>
-                <input class="search__query" name="keyword" placeholder="キーワードで検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
+                <input name="keyword" placeholder="キーワードで検索" type="text" value=""><button title="検索" type="submit"></button></input>
               <% end %>
-                <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
+                <form accept-charset="utf-8" action="/" method="get">
                 </form>

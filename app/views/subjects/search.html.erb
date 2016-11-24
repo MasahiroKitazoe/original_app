@@ -1,25 +1,12 @@
             <% if @subjects.present? %>
-              <ul class= ass="listview js-lazy-load-images">
+              <ul>
                 <% @subjects.each do |subject| %>
                   <li>
-                    <a class="listview__element--right-icon" href="/subjects/<%= subject.id %>" title="<%= subject.name %>">
-                      <div class="position-right p1em">
-                        <i class="icon-chevron-right color-sub"></i>
-                      </div>
-                      <div class="row no-space-bottom">
-                        <div class="col2">
-                          <div class="thumbnail thumbnail--movies">
-                            <div class="thumbnail__figure" style="background-image: url('http://find-travel.cdn-dena.com/picture/articlebody/84215');" title="<%= subject.name %>"></div>
-                          </div>
-                        </div>
-                        <div class="col6 push6">
-                          <h3 class="text-middle text-break">
-                            <span class="color-sub"><%= subject.name %></span>
+                    <a href="/subjects/<%= subject.id %>" title="<%= subject.name %>">
+                            <div style="background-image: url('http://find-travel.cdn-dena.com/picture/articlebody/84215');" title="<%= subject.name %>"></div>
+                          <h3>
+                            <span><%= subject.name %></span>
                           </h3>
-                          <p class="text-xsmall text-overflow">
-                          </p>
-                        </div>
-                      </div>
                     </a>
                   </li>
                 <% end %>
@@ -28,5 +15,5 @@
                 <p>
                   キーワードに当てはまる被写体はありません。
                 </p>
-                <a href="/">被写体を登録する</a>
+                <a href="/subjects/sign_up">被写体を登録する</a>
             <% end %>
