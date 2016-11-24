@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'subjects#index'
+
+  get '/subjects/search' => 'subjects#search'
 
   resources :subjects
+
+  root 'subjects#index'
+
 end

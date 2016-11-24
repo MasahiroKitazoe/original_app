@@ -4,6 +4,10 @@ class SubjectsController < ApplicationController
     @subjects = Subject.order('id ASC').limit(3)
   end
 
+  def search
+    @subjects = Subject.where('name LIKE(?)', "%#{params[:keyword]}%")
+  end
+
   def show
     @subject = Subject.find(params[:id])
   end
