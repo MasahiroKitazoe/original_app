@@ -24,6 +24,7 @@ class SubjectsController < ApplicationController
     ids = subject.images.ids
     subject.image_id = ids[0]
     subject.save
+    @subject = subject
   end
 
   private
