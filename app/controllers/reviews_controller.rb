@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class ReviewsController < LayoutsController
 
   def index
     redirect_to controller: :subjects, action: :index
@@ -40,6 +40,5 @@ private
       :wb3,
       :title3,
       :comment3,
-      ]).merge(subject_id: params[:subject_id])
-    #ログイン機能作成後、user_idもマージすること！
+      ]).merge(subject_id: params[:subject_id]).merge(user_id: current_user.id)
   end

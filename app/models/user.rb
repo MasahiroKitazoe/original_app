@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :subjects
   has_many :images
+
 end

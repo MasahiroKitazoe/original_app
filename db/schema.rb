@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127085634) do
+ActiveRecord::Schema.define(version: 20161129093221) do
 
   create_table "exposures", force: :cascade do |t|
     t.datetime "created_at"
@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 20161127085634) do
     t.string   "area",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "image_id",   limit: 4
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,7 +85,6 @@ ActiveRecord::Schema.define(version: 20161127085634) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "nickname",               limit: 255
-    t.string   "camera",                 limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,11 +1,5 @@
 <%= form_for @subject do |f| %>
   <%= f.text_field :name, placeholder: "被写体の名前を入力してください" %>
   <%= f.select :prefecture, @prefectures.map{|prefec| prefec.name}, placeholder: "都道府県を選択" %>
-    <%= f.fields_for :images do |image| %>
-      <%= image.file_field :image_file %>
-      <%= image.text_field :f_value, placeholder: "f値を入力（任意）" %>
-      <%= image.select :exposure, @exposures.map{|exp| exp.num}, placeholder: "露出を選択" %>
-      <%= image.text_field :wb, placeholder: "ホワイトバランスを入力してください。" %>
-    <% end %>
   <%= f.submit "登録する" %>
 <% end %>

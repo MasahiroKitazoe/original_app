@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/subjects/search' => 'subjects#search'
 
+  resources :users, only: :show
   resources :subjects do
     resources :reviews
   end

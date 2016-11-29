@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OriginalApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+        <nav>
+          <div>
+            <ul>
+              <li style="float: left">
+                <a href="/">被写体マップ.com</a>
+              </li>
+              <% if user_signed_in? %>
+                <li style="float: right">
+                  <%= link_to "サインアウト", "/users/sign_out", method: :delete %>
+                </li>
+                <li style="float: right">
+                  <a href="/users/<%= current_user.id %>">マイページ</a>
+                </li>
+              <% else %>
+                <li style="float: right">
+                  <a href="/users/sign_in">ログイン</a>
+                </li>
+                <li style="float: right">
+                  <a href="/users/sign_up">新規登録</a>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </nav>
+
+<%= yield %>
+
+</body>
+</html>
