@@ -13,6 +13,9 @@
     <li>
       <%= review.subject.name %>
     </li>
+    <li>
+      <a href="/subjects/<%= review.subject_id %>/reviews/<%= review.id %>/edit">レビューを修正する</a>
+    </li>
   <% end %>
 </ul>
 </br>

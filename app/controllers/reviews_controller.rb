@@ -4,6 +4,9 @@ class ReviewsController < LayoutsController
     redirect_to controller: :subjects, action: :index
   end
 
+  def edit
+  end
+
   def new
     @subject = Subject.find(params[:subject_id])
     @review = Review.new
