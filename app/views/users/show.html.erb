@@ -3,3 +3,36 @@
 </h2>
 </br>
 </br>
+
+
+<h3>
+  <%= current_user.nickname %>さんのレビュー
+</h3>
+<ul>
+  <% current_user.reviews.each do |review| %>
+    <li>
+      <%= review.subject.name %>
+    </li>
+  <% end %>
+</ul>
+</br>
+
+<h3>
+  <%= current_user.nickname %>さんのフォトギャラリー
+</h3>
+<ul>
+  <% current_user.images.each do |image| %>
+    <li>
+      <%= image_tag image.image_file %>
+    </li>
+    <% if image.image_file2 != "" %>
+      <li>
+      <%= image_tag image.image_file2 %>
+      </li>
+    <% elsif image.image_file3 != "" %>
+      <li>
+      <%= image_tag image.image_file3 %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

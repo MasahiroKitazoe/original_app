@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129093221) do
+ActiveRecord::Schema.define(version: 20161129131929) do
 
   create_table "exposures", force: :cascade do |t|
     t.datetime "created_at"
@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20161129093221) do
 
   create_table "images", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
-    t.integer  "subject_id",  limit: 4
-    t.text     "image_url",   limit: 65535
     t.decimal  "f_value",                   precision: 3, scale: 1
     t.decimal  "exposure",                  precision: 3, scale: 1
     t.text     "wb",          limit: 65535
@@ -45,6 +43,7 @@ ActiveRecord::Schema.define(version: 20161129093221) do
     t.string   "wb3",         limit: 255
     t.text     "image_file2", limit: 65535
     t.text     "image_file3", limit: 65535
+    t.integer  "subject_id",  limit: 4
   end
 
   create_table "prefectures", force: :cascade do |t|
@@ -60,6 +59,7 @@ ActiveRecord::Schema.define(version: 20161129093221) do
     t.text     "comment",    limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "image_id",   limit: 4
   end
 
   create_table "subjects", force: :cascade do |t|

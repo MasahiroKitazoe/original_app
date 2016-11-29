@@ -12,7 +12,17 @@ class ReviewsController < LayoutsController
   end
 
   def create
-    Review.create(create_params)
+    review = Review.create(create_params)
+    image = Image.find_by(review_id: review.id)
+
+    #Reviewテーブルのimage_idに値を代入
+    review.image_id = image.id
+    review.save
+
+    #Imageテーブルのuser_id,subject_idに値を代入
+    image.user_id = current_user.id
+    image.subject_id = params[:subject_id]
+    image.save
   end
 end
 
