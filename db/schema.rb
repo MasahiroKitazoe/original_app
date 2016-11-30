@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130064923) do
+ActiveRecord::Schema.define(version: 20161130102614) do
 
   create_table "exposures", force: :cascade do |t|
     t.datetime "created_at"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20161130064923) do
     t.text     "title",      limit: 65535
     t.text     "comment",    limit: 65535
     t.integer  "subject_id", limit: 4
+  end
+
+  create_table "maps", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "address",    limit: 255
+    t.integer  "subject_id", limit: 4
+    t.decimal  "latitude",               precision: 11, scale: 8
+    t.decimal  "longitude",              precision: 11, scale: 8
   end
 
   create_table "prefectures", force: :cascade do |t|

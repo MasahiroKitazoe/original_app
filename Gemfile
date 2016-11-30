@@ -54,3 +54,7 @@ group :development do
   gem 'paperclip'
 
   gem 'carrierwave'
+
+  gem 'gmaps4rails'
+
+  gem 'geocoder'

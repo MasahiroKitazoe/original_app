@@ -10,6 +10,13 @@ class SubjectsController < LayoutsController
 
   def show
     @subject = Subject.find(params[:id])
+    @map = Map.find_by(subject_id: params[:id])
+    @hash = Gmaps4rails.build_markers(@map) do |map, marker|
+      marker.lat map.latitude
+      marker.lng map.longitude
+      # marker.infowindow map.description
+      # marker.json({title: user.title})
+    end
   end
 
   def new
