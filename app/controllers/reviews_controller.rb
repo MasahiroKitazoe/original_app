@@ -5,27 +5,29 @@ class ReviewsController < LayoutsController
   end
 
   def edit
+    @subject = Subject.find(params[:subject_id])
+    @review = Review.find(params[:id])
+    @images = @review.images
+    @exposures = Exposure.all
+  end
+
+  def update
   end
 
   def new
     @subject = Subject.find(params[:subject_id])
     @review = Review.new
     @review.images.build
+    # @review.build_image
     @exposures = Exposure.all
   end
 
   def create
     review = Review.create(create_params)
-    image = Image.find_by(review_id: review.id)
+    images = Image.where(review_id: review.id)
 
-    #Reviewテーブルのimage_idに値を代入
-    review.image_id = image.id
-    review.save
-
-    #Imageテーブルのuser_id,subject_idに値を代入
-    image.user_id = current_user.id
-    image.subject_id = params[:subject_id]
-    image.save
+    #Imageテーブルのsubject_idとuser_idに値を代入
+    images.update_all(subject_id: params[:subject_id], user_id: current_user.id)
   end
 end
 
@@ -53,5 +55,5 @@ private
       :wb3,
       :title3,
       :comment3,
-      ]).merge(subject_id: params[:subject_id]).merge(user_id: current_user.id)
+      ]).merge(subject_id: params[:subject_id], user_id: current_user.id)
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129131929) do
+ActiveRecord::Schema.define(version: 20161130064923) do
 
   create_table "exposures", force: :cascade do |t|
     t.datetime "created_at"
@@ -20,30 +20,18 @@ ActiveRecord::Schema.define(version: 20161129131929) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
-    t.decimal  "f_value",                   precision: 3, scale: 1
-    t.decimal  "exposure",                  precision: 3, scale: 1
-    t.text     "wb",          limit: 65535
-    t.text     "lens",        limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.decimal  "f_value",                  precision: 3, scale: 1
+    t.decimal  "exposure",                 precision: 3, scale: 1
+    t.text     "wb",         limit: 65535
+    t.text     "lens",       limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "image_file",  limit: 65535
-    t.integer  "review_id",   limit: 4
-    t.text     "title",       limit: 65535
-    t.text     "comment",     limit: 65535
-    t.text     "title2",      limit: 65535
-    t.text     "comment2",    limit: 65535
-    t.decimal  "f_value2",                  precision: 3, scale: 1
-    t.decimal  "exposure2",                 precision: 3, scale: 1
-    t.string   "wb2",         limit: 255
-    t.text     "title3",      limit: 65535
-    t.text     "comment3",    limit: 65535
-    t.decimal  "f_value3",                  precision: 3, scale: 1
-    t.decimal  "exposure3",                 precision: 3, scale: 1
-    t.string   "wb3",         limit: 255
-    t.text     "image_file2", limit: 65535
-    t.text     "image_file3", limit: 65535
-    t.integer  "subject_id",  limit: 4
+    t.text     "image_file", limit: 65535
+    t.integer  "review_id",  limit: 4
+    t.text     "title",      limit: 65535
+    t.text     "comment",    limit: 65535
+    t.integer  "subject_id", limit: 4
   end
 
   create_table "prefectures", force: :cascade do |t|
@@ -59,7 +47,6 @@ ActiveRecord::Schema.define(version: 20161129131929) do
     t.text     "comment",    limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "image_id",   limit: 4
   end
 
   create_table "subjects", force: :cascade do |t|

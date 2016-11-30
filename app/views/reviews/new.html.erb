@@ -16,31 +16,33 @@
     <%= image.text_field :title, placeholder: "タイトルを入力" %>
     <%= image.label :写真について、コメントをお書きください（任意） %>
     <%= image.text_field :comment, placeholder: "コメントを入力" %>
-
-
-
-    <%= image.file_field :image_file2 %>
-    <%= image.text_field :f_value2, placeholder: "f値を入力（任意）" %>
-    <%= image.select :exposure2, @exposures.map{|exp| exp.num}, placeholder: "露出を選択（任意）" %>
-    <%= image.text_field :wb2, placeholder: "ホワイトバランスを入力してください（任意）" %>
-    <%= image.label :写真にタイトルをつけてください（任意） %>
-    <%= image.text_field :title2, placeholder: "タイトルを入力" %>
-    <%= image.label :写真について、コメントをお書きください（任意） %>
-    <%= image.text_field :comment2, placeholder: "コメントを入力" %>
-
-
-
-    <%= image.file_field :image_file3 %>
-    <%= image.text_field :f_value3, placeholder: "f値を入力（任意）" %>
-    <%= image.select :exposure3, @exposures.map{|exp| exp.num}, placeholder: "露出を選択（任意）" %>
-    <%= image.text_field :wb3, placeholder: "ホワイトバランスを入力してください（任意）" %>
-    <%= image.label :写真にタイトルをつけてください（任意） %>
-    <%= image.text_field :title3, placeholder: "タイトルを入力" %>
-    <%= image.label :写真について、コメントをお書きください（任意） %>
-    <%= image.text_field :comment3, placeholder: "コメントを入力" %>
-
-
-
   <% end %>
+
+
+  <%= f.fields_for :images do |image| %>
+    <%= image.file_field :image_file %>
+    <%= image.text_field :f_value, placeholder: "f値を入力（任意）" %>
+    <%= image.select :exposure, @exposures.map{|exp| exp.num}, placeholder: "露出を選択（任意）" %>
+    <%= image.text_field :wb, placeholder: "ホワイトバランスを入力してください（任意）" %>
+    <%= image.label :写真にタイトルをつけてください（任意） %>
+    <%= image.text_field :title, placeholder: "タイトルを入力" %>
+    <%= image.label :写真について、コメントをお書きください（任意） %>
+    <%= image.text_field :comment, placeholder: "コメントを入力" %>
+  <% end %>
+
+
+  <%= f.fields_for :images do |image| %>
+    <%= image.file_field :image_file %>
+    <%= image.text_field :f_value, placeholder: "f値を入力（任意）" %>
+    <%= image.select :exposure, @exposures.map{|exp| exp.num}, placeholder: "露出を選択（任意）" %>
+    <%= image.text_field :wb, placeholder: "ホワイトバランスを入力してください（任意）" %>
+    <%= image.label :写真にタイトルをつけてください（任意） %>
+    <%= image.text_field :title, placeholder: "タイトルを入力" %>
+    <%= image.label :写真について、コメントをお書きください（任意） %>
+    <%= image.text_field :comment, placeholder: "コメントを入力" %>
+  <% end %>
+
+
+
   <%= f.submit "投稿する" %>
 <% end %>
