@@ -1,4 +1,5 @@
 class ReviewsController < LayoutsController
+  before_action :authenticate_user!, except: :index
 
   def index
     redirect_to controller: :subjects, action: :index

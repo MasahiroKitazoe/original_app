@@ -1,4 +1,5 @@
 class SubjectsController < LayoutsController
+  before_action :authenticate_user!, only: :new
 
   def index
     @subjects = Subject.order('id ASC').limit(3)
