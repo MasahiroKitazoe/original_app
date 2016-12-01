@@ -1,5 +1,5 @@
 <%= form_for @subject do |f| %>
   <%= f.text_field :name, placeholder: "被写体の名前を入力してください" %>
   <%= f.select :prefecture, @prefectures.map{|prefec| prefec.name}, placeholder: "都道府県を選択" %>
-  <%= f.submit "登録する" %>
+  <%= f.submit "次へ" %>
 <% end %>

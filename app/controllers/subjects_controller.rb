@@ -15,8 +15,6 @@ class SubjectsController < LayoutsController
     @hash = Gmaps4rails.build_markers(@map) do |map, marker|
       marker.lat map.latitude
       marker.lng map.longitude
-      # marker.infowindow map.description
-      # marker.json({title: user.title})
     end
   end
 
@@ -28,6 +26,7 @@ class SubjectsController < LayoutsController
 
   def create
     @subject = Subject.create(create_params)
+    redirect_to "/subjects/#{@subject.id}/maps/new"
   end
 
   private

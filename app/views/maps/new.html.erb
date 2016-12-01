@@ -1,0 +1,95 @@
+<form action="#" onsubmit="getLatLng(document.getElementById('address').value); return(false);">
+  地名:
+    <input type="text" id="address" style="width: 400px" value>
+    <input type="submit" value="検索">
+</form>
+
+<p>
+  住所で検索されますと、より正確な結果が得られます。</br>
+  ※市区町村レベルの大雑把な住所でも、範囲を絞り込めます。
+</p>
+
+</br>
+</br>
+
+<p>
+  撮影スポットにピンを立ててください。
+</p>
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px; position: relative; overflow: hidden;'></div>
+</div>
+
+<p>
+  ピンを立てたら、登録ボタンを押してください。
+</p>
+
+
+<script type="text/javascript">
+
+var map = new google.maps.Map(document.getElementById("map"),{
+  zoom: 7,
+  center: new google.maps.LatLng(36,138),
+});
+
+function getLatLng(place) {
+
+  // ジオコーダのコンストラクタ
+  var geocoder = new google.maps.Geocoder();
+
+  // geocodeリクエストを実行。
+  // 第１引数はGeocoderRequest。住所⇒緯度経度座標の変換時はaddressプロパティを入れればOK。
+  // 第２引数はコールバック関数。
+  geocoder.geocode({
+    address: place
+  }, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+
+      // 結果の表示範囲。結果が１つとは限らないので、LatLngBoundsで用意。
+      var bounds = new google.maps.LatLngBounds();
+
+      for (var i in results) {
+        if (results[i].geometry) {
+
+          // 緯度経度を取得
+          var latlng = results[i].geometry.location;
+
+          // 住所を取得(日本の場合だけ「日本, 」を削除)
+          var address = results[i].formatted_address.replace(/^日本, /, '');
+
+          // 検索結果地が含まれるように範囲を拡大
+          bounds.extend(latlng);
+        }
+      }
+
+          // あとはご自由に・・・。
+          google.maps.event.addListener(map, 'click', function(event){
+              getClickLatLng(event.latLng, map);
+              });
+          };
+
+          function getClickLatLng(lat_lng, map){
+
+            document.getElementById('lat'). = lat_lng.lat();
+            document.getElementById('lng'). = lat_lng.lng();
+
+
+          var marker = new google.maps.Marker({
+                  position: lat_lng,
+                  map: map
+          });
+        }
+
+
+      // 範囲を移動
+      map.fitBounds(bounds);
+    });
+  };
+</script>
+
+
+<%= form_tag('/subjects/subject_id/maps', method: :post) do %>
+  <input type="text"><span id="lat"></span></input>
+  <input type="text"><span id="lng"></span></input>
+  <input type="submit">
+<% end %>
