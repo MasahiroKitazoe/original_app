@@ -27,6 +27,8 @@
 
 <script type="text/javascript">
 
+var markersArray = [];
+
 var map = new google.maps.Map(document.getElementById("map"),{
   zoom: 7,
   center: new google.maps.LatLng(36,138),
@@ -59,14 +61,29 @@ function getLatLng(place) {
 
           // 検索結果地が含まれるように範囲を拡大
           bounds.extend(latlng);
+
+          marker = new google.maps.Marker({
+            position: latlng,
+            map: map
+          });
+
+          markersArray.push(marker);
+
         }
       }
 
           // あとはご自由に・・・。
           google.maps.event.addListener(map, 'click', function(event){
+              clearMarker();
               getClickLatLng(event.latLng, map);
               });
           };
+
+          function clearMarker(){
+            for(var i = 0; i < markersArray.length; i++){
+              markersArray[i].setMap(null);
+            }
+          }
 
           function getClickLatLng(lat_lng, map){
 
@@ -76,8 +93,10 @@ function getLatLng(place) {
 
           var marker = new google.maps.Marker({
                   position: lat_lng,
-                  map: map
+                  map: map,
+                  draggable: true
           });
+          markersArray.push(marker);
         }
 
 
