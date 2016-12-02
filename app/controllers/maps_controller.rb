@@ -11,7 +11,8 @@ class MapsController < LayoutsController
   end
 
   def create
-    Map.create(create_params)
+    @map = Map.create(create_params)
+    @subject = Subject.find(@map.subject_id)
   end
 
   private
