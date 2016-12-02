@@ -32,6 +32,7 @@ var markersArray = [];
 var map = new google.maps.Map(document.getElementById("map"),{
   zoom: 7,
   center: new google.maps.LatLng(36,138),
+  clickableIcons: false,
 });
 
 function getLatLng(place) {
@@ -67,6 +68,9 @@ function getLatLng(place) {
             map: map
           });
 
+          document.getElementById('lat').value = latlng.lat();
+          document.getElementById('lng').value = latlng.lng();
+
           markersArray.push(marker);
 
         }
@@ -94,7 +98,6 @@ function getLatLng(place) {
           var marker = new google.maps.Marker({
                   position: lat_lng,
                   map: map,
-                  draggable: true
           });
           markersArray.push(marker);
         }
