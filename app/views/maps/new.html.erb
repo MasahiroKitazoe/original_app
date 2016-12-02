@@ -70,8 +70,8 @@ function getLatLng(place) {
 
           function getClickLatLng(lat_lng, map){
 
-            document.getElementById('lat'). = lat_lng.lat();
-            document.getElementById('lng'). = lat_lng.lng();
+            document.getElementById('lat').value = lat_lng.lat();
+            document.getElementById('lng').value = lat_lng.lng();
 
 
           var marker = new google.maps.Marker({
@@ -88,8 +88,8 @@ function getLatLng(place) {
 </script>
 
 
-<%= form_tag('/subjects/subject_id/maps', method: :post) do %>
-  <input type="text"><span id="lat"></span></input>
-  <input type="text"><span id="lng"></span></input>
-  <input type="submit">
+<%= form_tag("/subjects/#{params[:subject_id]}/maps", method: :post) do %>
+  <input type="text" id="lat" name="latitude" style="display: none" value="">
+  <input type="text" id="lng" name="longitude" style="display: none" value="">
+  <input type="submit" value="登録">
 <% end %>

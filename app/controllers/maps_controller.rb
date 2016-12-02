@@ -9,4 +9,16 @@ class MapsController < LayoutsController
 
     @prefecture = Subject.find(params[:subject_id])
   end
+
+  def create
+    Map.create(create_params)
+  end
+
+  private
+  def create_params
+    params.permit(
+      :latitude,
+      :longitude
+      ).merge(subject_id: params[:subject_id])
+  end
 end
