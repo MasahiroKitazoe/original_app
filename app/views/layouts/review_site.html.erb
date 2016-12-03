@@ -17,6 +17,12 @@
               <li style="float: left">
                 <a href="/">ふぉと場所</a>
               </li>
+              <li style="float: left;">
+                <%= form_tag('/subjects/search', method: :get) do %>
+                <input name="keyword" placeholder="キーワードで検索" type="text" value=""></input>
+                <input type="submit" value="検索"></input>
+              <% end %>
+              </li>
               <% if user_signed_in? %>
                 <li style="float: right">
                   <%= link_to "サインアウト", "/users/sign_out", method: :delete %>

@@ -20,11 +20,12 @@ class ReviewsController < LayoutsController
   end
 
   def new
-    if Review.where(user_id: current_user.id).present?
+    @subject = Subject.find(params[:subject_id])
+
+    if @subject.reviews.where(user_id: current_user.id).present?
       redirect_to controller: :reviews, action: :alert
     else
 
-    @subject = Subject.find(params[:subject_id])
     @review = Review.new
     @review.images.build
     # @review.build_image

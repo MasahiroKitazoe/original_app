@@ -30,7 +30,7 @@
   <%= f.fields_for :images do |image| %>
     <%= image.file_field :image_file %>
     <%= image.text_field :f_value, placeholder: "f値を入力（任意）" %>
-    <%= image.select :exposure, @exposures.map{|exp| exp.num}, placeholder: "露出を選択（任意）" %>
+    <%= image.select :exposure, @exposures.map{|exp| exp.num}, placeholder: "露出を選択（任意）", value: "0.0" %>
     <%= image.text_field :wb, placeholder: "ホワイトバランスを入力してください（任意）" %>
     <%= image.label :写真にタイトルをつけてください（任意） %>
     <%= image.text_field :title, placeholder: "タイトルを入力" %>
