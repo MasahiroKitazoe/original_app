@@ -1,10 +1,11 @@
             <ul>
               <% @subjects.each do |subject| %>
                 <li>
-                  <a href="/subjects/<%= subject.id %>"><div style="background-image:url('http://find-travel.cdn-dena.com/picture/articlebody/84215')"></div>
+                  <a href="/subjects/<%= subject.id %>"><div style="background-image:url('http://find-travel.cdn-dena.com/picture/articlebody/84215'); height: 100px; width: 100px;"></div>
                   <div>
                     <h3><%= subject.name %></h3></a>
                     <% if subject.reviews.present? %>
+                      <span class="rate rate<%= (subject.reviews.average(:rate).round(1) * 10).floor %>"></span>
                     <% end %>
                   </div>
                 </li>

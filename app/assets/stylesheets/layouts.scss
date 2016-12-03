@@ -1,3 +1,237 @@
-// Place all the styles related to the layouts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$starFull: 16px;//星1個の幅
+$star_cut: 1.6px;//星0.1個分の幅
+
+$rate1: $star_cut;
+$rate2: ($star_cut * 2);
+$rate3: ($star_cut * 3);
+$rate4: ($star_cut * 4);
+$rate5: ($star_cut * 5);
+$rate6: ($star_cut * 6);
+$rate7: ($star_cut * 7);
+$rate8: ($star_cut * 8);
+$rate9: ($star_cut * 9);
+$rate10: $starFull;//星1
+$rate11: $starFull + $star_cut;
+$rate12: $starFull + ($star_cut * 2);
+$rate13: $starFull + ($star_cut * 3);
+$rate14: $starFull + ($star_cut * 4);
+$rate15: $starFull + ($star_cut * 5);
+$rate16: $starFull + ($star_cut * 6);
+$rate17: $starFull + ($star_cut * 7);
+$rate18: $starFull + ($star_cut * 8);
+$rate19: $starFull + ($star_cut * 9);
+$rate20: $starFull * 2;//星2
+$rate21: ($starFull * 2) + $star_cut;
+$rate22: ($starFull * 2) + ($star_cut * 2);
+$rate23: ($starFull * 2) + ($star_cut * 3);
+$rate24: ($starFull * 2) + ($star_cut * 4);
+$rate25: ($starFull * 2) + ($star_cut * 5);
+$rate26: ($starFull * 2) + ($star_cut * 6);
+$rate27: ($starFull * 2) + ($star_cut * 7);
+$rate28: ($starFull * 2) + ($star_cut * 8);
+$rate29: ($starFull * 2) + ($star_cut * 9);
+$rate30: $starFull * 3;//星3
+$rate31: ($starFull * 3) + $star_cut;
+$rate32: ($starFull * 3) + ($star_cut * 2);
+$rate33: ($starFull * 3) + ($star_cut * 3);
+$rate34: ($starFull * 3) + ($star_cut * 4);
+$rate35: ($starFull * 3) + ($star_cut * 5);
+$rate36: ($starFull * 3) + ($star_cut * 6);
+$rate37: ($starFull * 3) + ($star_cut * 7);
+$rate38: ($starFull * 3) + ($star_cut * 8);
+$rate39: ($starFull * 3) + ($star_cut * 9);
+$rate40: $starFull * 4;//星4
+$rate41: ($starFull * 4) + $star_cut;
+$rate42: ($starFull * 4) + ($star_cut * 2);
+$rate43: ($starFull * 4) + ($star_cut * 3);
+$rate44: ($starFull * 4) + ($star_cut * 4);
+$rate45: ($starFull * 4) + ($star_cut * 5);
+$rate46: ($starFull * 4) + ($star_cut * 6);
+$rate47: ($starFull * 4) + ($star_cut * 7);
+$rate48: ($starFull * 4) + ($star_cut * 8);
+$rate49: ($starFull * 4) + ($star_cut * 9);
+$rate50 :$starFull * 5;//星5
+
+.rate{
+  position: relative;
+  display: inline-block;
+  width: $starFull * 5;
+  height: $starFull;
+  font-size: $starFull;
+  &:before,&:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '★★★★★';
+    display: inline-block;
+    height: $starFull;
+    line-height: $starFull;
+  }
+  &:before{
+  color: #ddd;
+  }
+  &:after{
+  color: #ffa500;
+  overflow: hidden;
+  white-space: nowrap;//これがないと改行されて星の半分（0.5）が表現できなくなる
+  }
+}
+.rate0:after{//星0
+  width: 0;
+}
+.rate1:after{
+  width: $rate1;
+}
+.rate2:after{
+  width: $rate2;
+}
+.rate3:after{
+  width: $rate3;
+}
+.rate4:after{
+  width: $rate4;
+}
+.rate5:after{
+  width: $rate5;
+}
+.rate6:after{
+  width: $rate6;
+}
+.rate7:after{
+  width: $rate7;
+}
+.rate8:after{
+  width: $rate8;
+}
+.rate9:after{
+  width: $rate9;
+}
+.rate10:after{//星1
+  width: $rate10;
+}
+.rate11:after{//星1
+  width: $rate11;
+}
+.rate12:after{//星1
+  width: $rate12;
+}
+.rate13:after{//星1
+  width: $rate13;
+}
+.rate14:after{//星1
+  width: $rate14;
+}
+.rate15:after{//星1.5
+  width: $rate15;
+}
+.rate16:after{//星1
+  width: $rate16;
+}
+.rate17:after{//星1
+  width: $rate17;
+}
+.rate18:after{//星1
+  width: $rate18;
+}
+.rate19:after{//星1
+  width: $rate19;
+}
+.rate20:after{//星2
+  width: $rate20;
+}
+.rate21:after{//星1
+  width: $rate21;
+}
+.rate22:after{//星1
+  width: $rate22;
+}
+.rate23:after{//星1
+  width: $rate23;
+}
+.rate24:after{//星1
+  width: $rate24;
+}
+.rate25:after{//星1.5
+  width: $rate25;
+}
+.rate26:after{//星1
+  width: $rate26;
+}
+.rate27:after{//星1
+  width: $rate27;
+}
+.rate28:after{//星1
+  width: $rate28;
+}
+.rate29:after{//星1
+  width: $rate29;
+}
+.rate30:after{//星3
+  width: $rate30;
+}
+.rate31:after{//星1
+  width: $rate31;
+}
+.rate32:after{//星1
+  width: $rate32;
+}
+.rate33:after{//星1
+  width: $rate33;
+}
+.rate34:after{//星1
+  width: $rate34;
+}
+.rate35:after{//星1.5
+  width: $rate35;
+}
+.rate36:after{//星1
+  width: $rate36;
+}
+.rate37:after{//星1
+  width: $rate37;
+}
+.rate38:after{//星1
+  width: $rate38;
+}
+.rate39:after{//星1
+  width: $rate39;
+}
+.rate40:after{//星4
+  width: $rate40;
+}
+.rate41:after{//星1
+  width: $rate41;
+}
+.rate42:after{//星1
+  width: $rate42;
+}
+.rate43:after{//星1
+  width: $rate43;
+}
+.rate44:after{//星1
+  width: $rate44;
+}
+.rate45:after{//星1.5
+  width: $rate45;
+}
+.rate46:after{//星1
+  width: $rate46;
+}
+.rate47:after{//星1
+  width: $rate47;
+}
+.rate48:after{//星1
+  width: $rate48;
+}
+.rate49:after{//星1
+  width: $rate49;
+}
+.rate50:after{//星5
+  width: $rate50;
+}
+
+
+// .rate-wrap{
+//   width: 80px;
+//   margin: 0 auto;
+// }

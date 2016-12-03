@@ -3,30 +3,14 @@
                 <h2>
                   <%= @subject.name %>
                 </h2>
+                  <% if @subject.reviews.present? %>
+                    <span class="rate rate<%= (@subject.reviews.average(:rate).round(1) * 10).floor %>"></span>
+                  <% end %>
               </header>
               <div style="text-align: right">
                 <a href="/subjects/<%= @subject.id %>/reviews/new">この被写体の評価をする</a>
               </div>
-              <% if @subject.reviews.present? %>
-              <% end %>
-              <header>
-                <h2>
-                  みんなのレビュー
-                </h2>
-              </header>
-              <ul style="padding: 0">
-                <% @subject.reviews.each do |review| %>
-                  <li style="border-bottom: dotted 1px">
-                      <h3>
-                        <%= review.user.nickname %>
-                      </h3>
-                      <p>
-                        <%= review.comment %>
-                      </p>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
+
 
             <P>
               MAP
@@ -46,3 +30,30 @@
                   handler.getMap().setZoom(15);
                 });
             </script>
+
+
+              <header>
+                <h2>
+                  みんなのレビュー
+                </h2>
+              </header>
+              <% if @subject.reviews.present? %>
+              <ul style="padding: 0">
+                <% @subject.reviews.each do |review| %>
+                  <li style="border-bottom: dotted 1px">
+                      <h3>
+                        <%= review.user.nickname %>
+                      </h3>
+                      <span class="rate rate<%= review.rate %>0"></span>
+                      <p>
+                        <%= review.comment %>
+                      </p>
+                  </li>
+                <% end %>
+              </ul>
+              <% else %>
+                <p>
+                  まだレビューはありません
+                </p>
+              <% end %>
+            </div>
