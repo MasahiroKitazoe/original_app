@@ -15,12 +15,21 @@ class ReviewsController < LayoutsController
   def update
   end
 
+  def alert
+    @review = Review.find_by(user_id: current_user.id)
+  end
+
   def new
+    if Review.where(user_id: current_user.id).present?
+      redirect_to controller: :reviews, action: :alert
+    else
+
     @subject = Subject.find(params[:subject_id])
     @review = Review.new
     @review.images.build
     # @review.build_image
     @exposures = Exposure.all
+  end
   end
 
   def create

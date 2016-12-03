@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202084153) do
+ActiveRecord::Schema.define(version: 20161203093522) do
 
   create_table "exposures", force: :cascade do |t|
     t.datetime "created_at"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20161202084153) do
     t.datetime "updated_at"
   end
 
+  add_index "reviews", ["user_id", "subject_id"], name: "index_reviews_on_user_id_and_subject_id", unique: true, using: :btree
+
   create_table "subjects", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.string   "name",       limit: 255
@@ -65,6 +67,8 @@ ActiveRecord::Schema.define(version: 20161202084153) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "subjects", ["name"], name: "index_subjects_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false

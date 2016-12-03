@@ -10,6 +10,10 @@ class SubjectsController < LayoutsController
     @subjects = Subject.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
+  def alert
+    @subject = Subject.find(params[:id])
+  end
+
   def show
     @subject = Subject.find(params[:id])
     @map = Map.find_by(subject_id: params[:id])
@@ -26,8 +30,14 @@ class SubjectsController < LayoutsController
   end
 
   def create
-    @subject = Subject.create(create_params)
+    if Subject.where(name: params.require(:subject).permit(:name)[:name]).present?
+      subject = Subject.find_by(name: params.require(:subject).permit(:name)[:name])
+      redirect_to "/subjects/#{subject.id}/alert"
+    else
+
+    Subject.create(create_params)
     redirect_to "/subjects/#{@subject.id}/maps/new"
+  end
   end
 
   private
