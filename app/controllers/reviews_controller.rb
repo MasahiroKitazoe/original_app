@@ -45,6 +45,10 @@ private
   def create_params
     params.require(:review).permit(
       :rate,
+      :num_rate,
+      :challenge_rate,
+      :envir_rate,
+      :access_rate,
       :comment,
       images_attributes:[
       :image_file,

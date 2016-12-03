@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203093522) do
+ActiveRecord::Schema.define(version: 20161203110036) do
 
   create_table "exposures", force: :cascade do |t|
     t.datetime "created_at"
@@ -49,12 +49,16 @@ ActiveRecord::Schema.define(version: 20161203093522) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "subject_id", limit: 4
-    t.integer  "rate",       limit: 4
-    t.text     "comment",    limit: 65535
+    t.integer  "user_id",        limit: 4
+    t.integer  "subject_id",     limit: 4
+    t.integer  "rate",           limit: 4
+    t.text     "comment",        limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "num_rate",       limit: 4
+    t.integer  "challenge_rate", limit: 4
+    t.integer  "envir_rate",     limit: 4
+    t.integer  "access_rate",    limit: 4
   end
 
   add_index "reviews", ["user_id", "subject_id"], name: "index_reviews_on_user_id_and_subject_id", unique: true, using: :btree

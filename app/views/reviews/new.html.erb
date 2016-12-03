@@ -1,7 +1,15 @@
 <%= form_for [@subject, @review] do |f| %>
-  <%= f.label :星いくつ？（5点満点） %>
+  <%= f.label :総合評価（5点満点） %>
   <%= f.number_field :rate, placeholder: '評価', value: 1, max: 5, min: 1 %>
-  <%= f.label :理由などをコメントしてください %>
+  <%= f.label :被写体の数量（5点満点） %>
+  <%= f.number_field :num_rate, placeholder: '評価', value: 1, max: 5, min: 1 %>
+  <%= f.label :撮影難易度（5点満点） %>
+  <%= f.number_field :challenge_rate, placeholder: '評価', value: 1, max: 5, min: 1 %>
+  <%= f.label :撮影環境（5点満点） %>
+  <%= f.number_field :envir_rate, placeholder: '評価', value: 1, max: 5, min: 1 %>
+  <%= f.label :アクセスの良さ（5点満点） %>
+  <%= f.number_field :access_rate, placeholder: '評価', value: 1, max: 5, min: 1 %>
+  <%= f.label :評価の理由などをコメントしてください %>
   <%= f.text_field :comment, placeholder: 'コメントを入力' %>
 
 
