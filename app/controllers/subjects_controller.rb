@@ -2,7 +2,8 @@ class SubjectsController < LayoutsController
   before_action :authenticate_user!, only: :new
 
   def index
-    @subjects = Subject.order('id ASC').limit(3)
+    subjects_ids = Review.group(:subject_id).order('count_subject_id DESC').limit(20).count(:subject_id).keys
+    @subjects = subjects_ids.map{|id| Subject.find(id)}
   end
 
   def search

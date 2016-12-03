@@ -1,7 +1,8 @@
             <ul>
               <% @subjects.each do |subject| %>
                 <li>
-                  <a href="/subjects/<%= subject.id %>"><div style="background-image:url('http://find-travel.cdn-dena.com/picture/articlebody/84215'); height: 100px; width: 100px;"></div>
+                <%  %>
+                  <a href="/subjects/<%= subject.id %>"><div style="height: 300px, width: 300px;"><%= image_tag subject.images.order('created_at ASC').first.image_file.url %></div>
                   <div>
                     <h3><%= subject.name %></h3></a>
                     <% if subject.reviews.present? %>
