@@ -1,14 +1,14 @@
             <ul>
               <% @subjects.each do |subject| %>
                 <li>
-                <%  %>
-                  <a href="/subjects/<%= subject.id %>"><div style="height: 300px, width: 300px;"><%= image_tag subject.images.order('created_at ASC').first.image_file.url %></div>
-                  <div>
+                    <a href="/subjects/<%= subject.id %>">
+                      <% if subject.images.present? %>
+                        <%= image_tag(subject.images.order('created_at ASC').first.image_file.url, :size=> "480x390") %>
+                      <% end %>
                     <h3><%= subject.name %></h3></a>
                     <% if subject.reviews.present? %>
                       <span class="rate rate<%= (subject.reviews.average(:rate).round(1) * 10).floor %>"></span>
                     <% end %>
-                  </div>
                 </li>
               <% end %>
               </ul>

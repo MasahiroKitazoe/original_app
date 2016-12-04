@@ -9,8 +9,12 @@ Rails.application.routes.draw do
 
   resources :users, only: :show
   resources :subjects do
-    resources :reviews
     resources :maps
+    resources :reviews do
+      resources :images do
+        resources :likes, only: [:create, :destroy]
+      end
+    end
   end
 
   root 'subjects#index'

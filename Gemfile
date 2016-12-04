@@ -58,3 +58,11 @@ group :development do
   gem 'gmaps4rails'
 
   gem 'geocoder'
+
+  gem 'rmagick'
+
+  gem 'therubyracer'
+
+  gem 'less-rails'
+
+  gem 'twitter-bootstrap-rails'

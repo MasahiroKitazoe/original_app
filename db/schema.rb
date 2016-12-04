@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203110036) do
+ActiveRecord::Schema.define(version: 20161204064144) do
 
   create_table "exposures", force: :cascade do |t|
     t.datetime "created_at"
@@ -20,18 +20,26 @@ ActiveRecord::Schema.define(version: 20161203110036) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.decimal  "f_value",                  precision: 3, scale: 1
-    t.decimal  "exposure",                 precision: 3, scale: 1
-    t.text     "wb",         limit: 65535
-    t.text     "lens",       limit: 65535
+    t.integer  "user_id",     limit: 4
+    t.decimal  "f_value",                   precision: 3, scale: 1
+    t.decimal  "exposure",                  precision: 3, scale: 1
+    t.text     "wb",          limit: 65535
+    t.text     "lens",        limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "image_file", limit: 65535
-    t.integer  "review_id",  limit: 4
-    t.text     "title",      limit: 65535
-    t.text     "comment",    limit: 65535
-    t.integer  "subject_id", limit: 4
+    t.text     "image_file",  limit: 65535
+    t.integer  "review_id",   limit: 4
+    t.text     "title",       limit: 65535
+    t.text     "comment",     limit: 65535
+    t.integer  "subject_id",  limit: 4
+    t.integer  "likes_count", limit: 4
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "image_id",   limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "maps", force: :cascade do |t|

@@ -48,9 +48,28 @@
                       <p>
                         <%= review.comment %>
                       </p>
+                        <% review.images.each do |image| %>
+                          <% if image.image_file.present? %>
+                            <%= image_tag image.image_file.url %>
+
+                              <%= render partial: "like", locals: {image: image, review: review} %>
+
+                          <!-- image_file.present?の閉じタグ -->
+                          <% end %>
+
+                            <br>
+
+                        <!-- review.images.eachの閉じタグ -->
+                        <% end %>
+
                   </li>
+
+                <!-- @subject.reviews.eachの閉じタグ -->
                 <% end %>
+
               </ul>
+
+              <!-- レビューがまだ存在しない場合 -->
               <% else %>
                 <p>
                   まだレビューはありません
