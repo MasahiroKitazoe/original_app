@@ -11,10 +11,12 @@ Rails.application.routes.draw do
   resources :subjects do
     resources :maps
     resources :reviews do
-      resources :images do
-        resources :likes, only: [:create, :destroy]
+      resources :images
       end
-    end
+  end
+
+  resources :images do
+    resources :likes, only: [:create, :destroy]
   end
 
   root 'subjects#index'

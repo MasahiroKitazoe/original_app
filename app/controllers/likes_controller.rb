@@ -4,7 +4,9 @@ class LikesController < ApplicationController
     @like = Like.create(user_id: current_user.id, image_id: params[:image_id])
     @likes = Like.where(image_id: params[:image_id])
     # @images = image.all
-    @image= Image.find_by(id: params[:image_id])
+    @subjects = Subject.all
+    @reviews = Review.all
+    @images = Image.all
   end
 
   def destroy
@@ -12,7 +14,9 @@ class LikesController < ApplicationController
     like.destroy
     @likes = Like.where(image_id: params[:image_id])
     # @images = image.all
-    @image= Image.find_by(id: params[:image_id])
+    @subjects = Subject.all
+    @reviews = Review.all
+    @images = Image.all
   end
 
 end

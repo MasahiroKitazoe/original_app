@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <!-- ログインユーザーがすでにいいね！している場合 -->
   <% if image.like_user(current_user.id) %>
-      <%= button_to "/subjects/#{@subject.id}/reviews/#{review.id}/images/#{image.id}/likes/#{image.likes.find_by(user_id: current_user.id).id}", method: :delete, id: "like-button", remote: true do %>
+      <%= button_to "/images/#{image.id}/likes/#{image.likes.find_by(user_id: current_user.id).id}", method: :delete, id: "like-button", remote: true do %>
         <div><i class="glyphicon glyphicon-thumbs-up"></i></div>
         <span>
           <%= image.likes_count %>
@@ -9,7 +9,7 @@
       <% end %>
   <!-- ログインユーザーが未だいいね！をしていない場合 -->
   <% else %>
-    <%= button_to "/subjects/#{@subject.id}/reviews/#{review.id}/images/#{image.id}/likes", id: "like-button", remote: true do %>
+    <%= button_to "/images/#{image.id}/likes", id: "like-button", remote: true do %>
       <div><i class="glyphicon glyphicon-thumbs-up"></i></div>
       <span>
         <%= image.likes_count %>
