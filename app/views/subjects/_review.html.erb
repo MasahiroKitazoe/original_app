@@ -1,0 +1,9 @@
+  <li style="border-bottom: dotted 1px">
+      <h3>
+        <%= review.user.nickname %>
+      </h3>
+      <span class="rate rate<%= review.rate %>0"></span>
+      <p>
+        <%= review.comment %>
+      </p>
+        <%= render partial: "image", collection: review.images %>

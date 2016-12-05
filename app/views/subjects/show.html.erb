@@ -38,36 +38,11 @@
                 </h2>
               </header>
               <% if @subject.reviews.present? %>
-              <ul style="padding: 0">
-                <% @subject.reviews.each do |review| %>
-                  <li style="border-bottom: dotted 1px">
-                      <h3>
-                        <%= review.user.nickname %>
-                      </h3>
-                      <span class="rate rate<%= review.rate %>0"></span>
-                      <p>
-                        <%= review.comment %>
-                      </p>
-                        <% review.images.each do |image| %>
-                          <% if image.image_file.present? %>
-                            <%= image_tag image.image_file.url %>
+                <ul style="padding: 0">
 
-                              <%= render partial: "like", locals: {image: image, review: review} %>
+                 <%= render partial: "review", collection: @subject.reviews %>
 
-                          <!-- image_file.present?の閉じタグ -->
-                          <% end %>
-
-                            <br>
-
-                        <!-- review.images.eachの閉じタグ -->
-                        <% end %>
-
-                  </li>
-
-                <!-- @subject.reviews.eachの閉じタグ -->
-                <% end %>
-
-              </ul>
+                </ul>
 
               <!-- レビューがまだ存在しない場合 -->
               <% else %>

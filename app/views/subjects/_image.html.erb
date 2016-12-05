@@ -1,0 +1,11 @@
+<% if image.image_file.present? %>
+  <%= image_tag image.image_file.url %>
+  <div id="like-function-<%= image.id %>">
+  <%= render "like", image: image %>
+  </div>
+  <!-- image_file.present?の閉じタグ -->
+  <% end %>
+
+  <br>
+
+</li>
