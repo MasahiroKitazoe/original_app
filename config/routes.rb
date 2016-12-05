@@ -9,13 +9,11 @@ Rails.application.routes.draw do
 
   resources :users, only: :show
   resources :subjects do
-    resources :maps
-    resources :reviews do
-      resources :images
-      end
+    resources :maps, only: [:new, :create]
+    resources :reviews, except: [:destroy]
   end
 
-  resources :images do
+  resources :images, only: [] do
     resources :likes, only: [:create, :destroy]
   end
 
