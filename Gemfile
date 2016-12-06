@@ -66,3 +66,9 @@ group :development do
   gem 'less-rails'
 
   gem 'twitter-bootstrap-rails'
+
+  gem 'twitter-bootswatch-rails', '~> 3.1.1'
+
+  gem 'twitter-bootswatch-rails-helpers'
+
+  gem 'execjs'

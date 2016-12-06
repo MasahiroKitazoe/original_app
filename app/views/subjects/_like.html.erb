@@ -10,7 +10,7 @@
   <!-- ログインユーザーが未だいいね！をしていない場合 -->
   <% else %>
     <%= button_to "/images/#{image.id}/likes", id: "like-button", remote: true do %>
-      <div><i class="glyphicon glyphicon-thumbs-up"></i></div>
+      <div><span class="glyphicon glyphicon-thumbs-up"></span></div>
       <span>
         <%= image.likes_count %>
       </span>
